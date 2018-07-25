@@ -2,13 +2,11 @@
   "name": "templater",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "debug": "devtool main.js",
-    "build-watch": "babel src -w -d build --ignore *.test.js",
-    "run-watch": "watch 'node build/main.js' src --wait=0",
-    "test": "watch 'mocha --compilers js:babel-core/register src/**/*.test.js' src --wait=0",
-    "start": "npm run build-watch & npm run run-watch"
+    "build": "rm -rf build/*; babel src -d build --ignore *.test.js",
+    "build:watch": "babel src -w -d build --ignore *.test.js",
+    "test": "watch 'mocha --compilers js:babel-core/register src/**/*.test.js' src --wait=0"
   },
   "babel": {
     "presets": [
